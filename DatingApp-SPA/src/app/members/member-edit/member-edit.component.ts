@@ -14,6 +14,7 @@ import { UserService } from 'src/app/_services/user.service';
 })
 export class MemberEditComponent implements OnInit {
   user: User;
+  photoUrl: string;
   // galleryOptions: NgxGalleryOptions[];
   // galleryImages: NgxGalleryImage[];
   @ViewChild('editForm', { static: true }) editForm: NgForm;
@@ -35,6 +36,7 @@ export class MemberEditComponent implements OnInit {
     this.route.data.subscribe((data) => {
       this.user = data.user;
     });
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   updateUser(): void {
@@ -44,5 +46,9 @@ export class MemberEditComponent implements OnInit {
     }, error => {
         this.alertify.error(error);
     });
+  }
+
+  updateMainPhoto(photoUrl): void {
+    this.user.photoUrl = photoUrl;
   }
 }
