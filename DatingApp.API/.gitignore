@@ -2,7 +2,7 @@
 bin
 obj
 *.db
-*.db-shm
-*.db-wal
+datingapp.db-shm
+datingapp.db-wal
 /appsettings.json
 /appsettings.Development.json
