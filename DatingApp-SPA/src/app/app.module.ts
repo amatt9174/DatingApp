@@ -1,3 +1,4 @@
+import { DateAgoPipe } from './_pipes/date-ago.pipe';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -50,7 +51,8 @@ export function tokenGetter(): string {
       MemberEditComponent,
       PhotoEditorComponent,
       ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      DateAgoPipe
    ],
    imports: [
       BrowserModule,
