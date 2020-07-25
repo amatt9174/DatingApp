@@ -1,0 +1,10 @@
+below are various connection strings that can be used in the appsettings.json file
+
+MySql
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost; Database=datingapp; Uid=appuser; Pwd=password"
+  },
+SQL Server  
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost; Database=datingapp; User Id=appuser; Password=password"
+  },

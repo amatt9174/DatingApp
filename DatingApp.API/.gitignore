@@ -6,3 +6,4 @@ datingapp.db-shm
 datingapp.db-wal
 /appsettings.json
 /appsettings.Development.json
+wwwroot
