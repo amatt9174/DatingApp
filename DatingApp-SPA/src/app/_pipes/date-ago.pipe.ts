@@ -9,10 +9,16 @@ export class DateAgoPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     if (value) {
-      const seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
+      const now = new Date();
+      const sent = new Date(value);
+      const offset = sent.getTimezoneOffset();
+      sent.setMinutes(sent.getMinutes() - offset);
+
+      const seconds = Math.floor((+now - +sent) / 1000);
       if (seconds < 29) { // less than 30 seconds ago will show as 'Just now'
         return 'Just now';
       }
+
       const intervals = {
         year: 31536000,
         month: 2592000,
@@ -22,6 +28,7 @@ export class DateAgoPipe implements PipeTransform {
         minute: 60,
         second: 1
       };
+
       let counter: number;
       // tslint:disable-next-line:forin
       for (const i in intervals) {
@@ -34,6 +41,7 @@ export class DateAgoPipe implements PipeTransform {
           }
         }
       }
+
       return value;
     }
   }

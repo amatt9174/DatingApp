@@ -46,7 +46,7 @@ namespace DatingApp3._0Project
         {
             services.AddDbContext<DataContext>(x => {
                 x.UseLazyLoadingProxies();
-                x.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+                x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             ConfigureServices(services);
@@ -104,11 +104,14 @@ namespace DatingApp3._0Project
                         }
                     });
                 });
+                app.UseHsts();
             }
 
-            // app.UseHttpsRedirection();
-
             app.UseRouting();
+
+            // app.UseDeveloperExceptionPage();
+
+            app.UseHttpsRedirection();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 

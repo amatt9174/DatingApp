@@ -53,6 +53,8 @@ export class MemberMessagesComponent implements OnInit {
       this.newMessage.content = '';
     }, error => {
       this.alertify.error(error);
+    }, () => {
+      this.loadMessages();
     });
   }
 }
